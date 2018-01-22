@@ -64,6 +64,7 @@ export default new Vuex.Store({
       state.name = "Jon Snow"
     },
     setDefaultAddress (state, id) {
+      console.log(id)
       state.lists.map(current => {
         current.isDefaultAddress = current.id === id
       })
@@ -78,11 +79,15 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    lucia () {
+    lucia ({ commit }, msg) {
       console.log(920729)
-      setTimeout(() => {
-        console.log(921216)
-      }, 1000);
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {    
+          console.log(msg)  
+          commit('increment')
+          resolve()
+        }, 1000);
+      })
     }
   }
 })

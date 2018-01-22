@@ -64,8 +64,8 @@ export default {
     },
     methods: {
         ls () {
-            this.$store.dispatch("lucia").then(() => {
-                console.log("async over")
+            this.$store.dispatch("lucia","async over").then(() => {
+                console.log("------------")
             })
         },
         ...mapMutations ([
