@@ -64,16 +64,24 @@ export default {
     },
     methods: {
         ls () {
-            this.$store.dispatch("lucia","async over").then(() => {
-                console.log("------------")
-            })
+            // this.showLucia().then(() => {                
+            //     return this.showMsg('传入的id')
+            // }).then(() => {
+            //     console.log('over')
+            // })
+            // var res = await this.showLucia();
+            // await this.showMsg();
+            // console.log('over')
+            this.showMsg()
+            console.log(11111111)
         },
         ...mapMutations ([
             'increment',
             'setDefaultAddress'
         ]),
         ...mapActions ([
-            'lucia'
+            'showLucia',
+            'showMsg'
         ])
     }
 }

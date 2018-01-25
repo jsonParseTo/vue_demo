@@ -53,9 +53,7 @@ export default new Vuex.Store({
   },
   mutations: {
     increment (state) {
-      // setTimeout(function () {
-        state.count++
-      // }, 2000)
+      state.count++
     },
     decrement (state) {
       state.count--
@@ -79,14 +77,22 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    lucia ({ commit }, msg) {
-      console.log(920729)
+    async showLucia () {
       return new Promise((resolve, reject) => {
-        setTimeout(() => {    
-          console.log(msg)  
-          commit('increment')
+        setTimeout(() => { 
+          console.log('showLucia') 
           resolve()
-        }, 1000);
+        }, 1000)
+      })
+    },
+    async showMsg ({dispatch}, id) {
+      console.log(id)
+      await dispatch('showLucia')
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log('showMsg')
+          resolve()
+        },2000)
       })
     }
   }
